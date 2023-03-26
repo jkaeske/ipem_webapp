@@ -3,20 +3,11 @@
 {% load static %}
 
 {% block content %}
-  <div class="py-32 px-6 lg:px-8">
+    <div class="py-32 px-6 lg:px-8">
     <div class="mx-auto max-w-4xl text-base leading-7 text-gray-700">
-      <p class="text-base font-semibold leading-7 text-emerald-600">Introducing</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">The integrated Product engineering Model (iPeM)</h1>
-      <p class="mt-6 text-xl leading-8">The iPeM is a generic meta-model which comprises the relevant elements to derive situation-specific product development process models. The iPeM is based on the system triple of product engineering: it describes product engineering as a continuous interaction of the system of objectives, the system of objects and the operation system.</p>
-      <figure class="mt-16">
-        <img class="aspect-auto rounded-xl bg-gray-50 object-cover" src="{% static 'images/ipem_meta_model.png' %}" alt="">
-        <figcaption class="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-          <svg class="mt-0.5 h-5 w-5 flex-none text-gray-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
-          </svg>
-          Faucibus commodo massa rhoncus, volutpat.
-        </figcaption>
-      </figure>
+      <p class="text-base font-semibold leading-7 text-emerald-600">Activity</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Managing Projects</h1>
+      <p class="mt-6 text-xl leading-8">The Manage Projects activity is performed continuously during product development. In this activity, the TARGET process is defined and adjustments are made on the basis of ACTUAL - TARGET deviations. It therefore interacts closely with the other activities and defines their sequence and goals.</p>
       <div class="mt-10 max-w-2xl">
         <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
         <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-600">
@@ -52,7 +43,7 @@
             <p>“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”</p>
           </blockquote>
           <figcaption class="mt-6 flex gap-x-4">
-            <img class="h-6 w-6 flex-none rounded-full bg-gray-50" src="{% static 'images/Prof-Albers.jpg' %}" alt="">
+            <img class="h-6 w-6 flex-none rounded-full bg-gray-50" src="{% static "images/Prof-Albers.jpg" %}" alt="">
             <div class="text-sm leading-6"><strong class="font-semibold text-gray-900">Univ.-Prof. Dr.-Ing. Dr. h. c. Albert Albers</strong> – 2023</div>
           </figcaption>
         </figure>
@@ -80,5 +71,4 @@
       </div>
     </div>
   </div>
-
 {% endblock %}

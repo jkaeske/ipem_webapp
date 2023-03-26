@@ -20,12 +20,23 @@ urlpatterns = [
         TemplateView.as_view(template_name="pages/method_abstract.html"),
         name="method_abstract",
     ),
+    path(
+        "meta_model/spalten/",
+        TemplateView.as_view(template_name="spalten.html"),
+        name="spalten",
+    ),
+    path(
+        "meta_model/manage_projects/",
+        TemplateView.as_view(template_name="manage_projects.html"),
+        name="manage_projects",
+    ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("ipem_webapp.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("methods/", include("ipem_webapp.methods.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

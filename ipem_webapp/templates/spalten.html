@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+{% load static %}
+
+{% block content %}
+  <div class="py-32 px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl text-base leading-7 text-gray-700">
+      <p class="text-base font-semibold leading-7 text-emerald-600">Introducing</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">SPALTEN</h1>
+      <p class="mt-6 text-xl leading-8">The SPALTEN methodology describes a universal approach for handling problems with different boundary conditions and degrees of complexity. With its help, a minimization of effort and time as well as an optimization of the solution can be achieved in connection with a maximization of safety when solving the problem. The basis of this methodology is "Systems Engineering". Furthermore, the "General Problem Solving Process", consisting of problem analysis, problem formulation, system synthesis, system analysis, evaluation and decision, as it is understood according to the VDI guideline 2221, is integrated in the SPALTEN methodology and is extended by the work steps (modules) implementation and rework/learning.</p>
+      <div class="mt-10 max-w-2xl">
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">Ressources</h2>
+        <p class="mt-6">Learn more about SPALTEN by reading the wiki entry or watching a video.</p>
+        <div class="mt-10 mb-4 flex">
+          <a href="https://www.ipek.kit.edu/glossar/index.php?title=SPALTEN" class="text-base font-semibold leading-7 text-emerald-600">IPEK Wiki entry <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9n5sHVZ9TBg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"> </iframe>
+      </div>
+    </div>
+  </div>
+{% endblock %}

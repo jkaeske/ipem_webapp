@@ -75,6 +75,8 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "slippers",
+    "django_tables2",
 ]
 
 LOCAL_APPS = [
@@ -182,6 +184,10 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "ipem_webapp.users.context_processors.allauth_settings",
+            ],
+            "builtins": [
+                "slippers.templatetags.slippers",
+                "heroicons.templatetags.heroicons",
             ],
         },
     }

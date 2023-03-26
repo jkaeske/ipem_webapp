@@ -1,0 +1,4 @@
+components:
+  card: "partials/card.html"
+  button_primary: "partials/button_primary.html"
+  button_secondary: "partials/button_secondary.html"

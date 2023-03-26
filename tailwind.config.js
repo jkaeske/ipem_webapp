@@ -2,7 +2,8 @@
 module.exports = {
   content: ["./ipem_webapp/templates/**/*.{html,js}",
             "./ipem_webapp/templates/**/**/*.{html,js}",
-            "./ipem_webapp/templates/*.{html,js}"],
+            "./ipem_webapp/templates/*.{html,js}",
+            "./ipem_webapp/**/*.py",],
   theme: {
     extend: {
         gridTemplateColumns: {
