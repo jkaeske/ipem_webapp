@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+
+{% block content %}
+  <div>
+    <div class="hidden sm:block m-5">
+      <div class="border-b border-gray-200">
+        <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+          <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+          <a href="#" class="border-emerald-500 text-emerald-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-xl" aria-current="page">
+            Product G<sub>n</sub>
+          </a>
+          {% for layer in model.layer.all %}
+            <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-xl">
+              {{ layer.get_type_display }} G<sub>{{ layer.get_generation_display }}</sub>
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-19 gap-3 bg-slate-200 m-5">
+    <div class="grid place-content-center row-span-{{ activity_count|add:3 }} text-white text-xl text-center bg-slate-500 rounded-lg shadow-lg">
+      <div class="font-mono -rotate-90">
+        SYSTEM OF OBJECTIVES
+      </div>
+    </div>
+    <div class="font-mono grid place-content-center h-12 col-span-17 text-white text-xl bg-slate-500 rounded-lg shadow-lg">
+      OPERATION SYSTEM
+    </div>
+    <div class="grid place-content-center row-span-{{ activity_count|add:3 }} text-white text-center text-xl bg-slate-500 rounded-lg shadow-lg">
+      <div class="font-mono -rotate-90">
+        SYSTEM OF OBJECTS
+      </div>
+    </div>
+    <div class="font-mono grid place-content-center text-center row-span-2 col-span-7 bg-slate-500 text-white text-xl rounded-lg shadow-lg">
+      ACTIVITIES OF <br> PRODUCT ENGINEERING
+    </div>
+    <a href="{% url 'spalten' %}" class="font-mono grid place-content-center h-12 row-span-1 text-white text-xl col-span-7 bg-slate-500 tracking-wide rounded-t-lg shadow-lg">
+      ACTIVITIES OF PROBLEM SOLVING
+    </a>
+    <div class="grid place-content-center row-span-{{ activity_count|add:2 }} text-white text-center text-xl bg-slate-500 rounded-lg shadow-lg">
+      <div class="font-mono -rotate-90">
+        SYSTEM OF RESOURCES
+      </div>
+    </div>
+    <div class="font-mono grid place-content-center text-center row-span-2 col-span-2 bg-slate-500 text-white text-xl rounded-lg shadow-lg">
+      PHASE <br> MODEL
+    </div>
+    <div class="h-12 row-span-1 col-span-7 rounded-lg">
+      <div class="h-12 flex flex-row gap-3 rounded-lg">
+        <a href="spalten/s.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl rounded-bl-lg shadow-lg text-white text-center">
+          S
+        </a>
+        <a href="spalten/p.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl shadow-xl text-white text-center">
+          P
+        </a>
+        <a href="spalten/a.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl shadow-xl text-white text-center">
+          A
+        </a>
+        <a href="spalten/l.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl shadow-xl text-white text-center">
+          L
+        </a>
+        <a href="spalten/t.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl shadow-xl text-white text-center">
+          T
+        </a>
+        <a href="spalten/e.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl shadow-xl text-white text-center">
+          E
+        </a>
+        <a href="spalten/n.html" class="grid place-content-center basis-1/6 bg-emerald-600 hover:bg-gradient-to-r hover:from-pink-600 hover:to-yellow-600 text-xl rounded-br-lg shadow-xl text-white text-center">
+          N
+        </a>
+      </div>
+    </div>
+
+    {% for activity in layer.development_activity.all %}
+      <a href="{% url 'manage_projects' %}" class="font-mono h-12 grid place-content-center row-span-1 col-span-7 bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-pink-600 hover:to-yellow-600 text-white text-xl rounded-lg shadow-lg {% if forloop.first %}mt-3{% endif %}">
+        {{ activity.name }}
+      </a>
+      <div class="row-span-1 col-span-7 rounded-lg {% if forloop.first %}mt-3{% endif %}">
+        <div class="h-12 flex flex-row gap-3 rounded-lg">
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 rounded-l-lg text-white text-center"></div>
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
+          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 rounded-r-lg text-white text-center"></div>
+        </div>
+      </div>
+
+      {% if forloop.first %}
+        <div class="grid place-content-center mt-3 row-span-{{ activity_count }} col-span-2 text-white text-xl text-center bg-slate-500 rounded-lg shadow-lg">
+          <div class="font-mono">
+            GANTT CHART
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -77,12 +77,14 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "slippers",
     "django_tables2",
+    "nested_admin",
 ]
 
 LOCAL_APPS = [
     "ipem_webapp.users",
     # Your stuff: custom apps go here
     "ipem_webapp.methods",
+    "ipem_webapp.models",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

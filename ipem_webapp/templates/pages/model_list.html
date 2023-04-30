@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+{% load static %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+  <div class="space-y-6 mt-4 max-w-4xl mx-auto sm:px-6 lg:col-span-9 lg:px-0">
+    {% #card card_title="Model Overview" card_subtitle="List with all model instantiations of iPeM"%}
+      {% render_table table %}
+    {% /card %}
+  </div>
+{% endblock %}

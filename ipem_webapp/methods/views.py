@@ -28,4 +28,18 @@ class MethodDetailView(DetailView):
         return context
 
 
+class ModelDetailView(DetailView):
+    template_name = "pages/model.html"
+    context_object_name = "model"
+
+    def get_queryset(self):
+        return Method.objects.filter(pk=self.kwargs["pk"])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["view"] = self.kwargs["view"]
+
+        return context
+
+
 method_detail_view = MethodDetailView.as_view()

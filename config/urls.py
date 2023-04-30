@@ -32,11 +32,13 @@ urlpatterns = [
     ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
+    path("_nested_admin/", include("nested_admin.urls")),
     # User management
     path("users/", include("ipem_webapp.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("methods/", include("ipem_webapp.methods.urls")),
+    path("models/", include("ipem_webapp.models.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
