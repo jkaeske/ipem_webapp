@@ -23,6 +23,15 @@ Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
+### Creating a new app
+1. Create the <name-of-the-app> app with:
+
+        $ python manage.py startapp <name-of-the-app>
+
+2. Move <name-of-the-app> directory to ipem_webapp directory
+3. Edit ipem_webapp/<name-of-the-app>/apps.py and change name = "<name-of-the-app>" to name = "ipem_webapp.<name-of-the-app>"
+4. Add "ipem_webapp.<name-of-the-app>" to LOCAL_APPS in config/settings/base.py
+
 ### Type checks
 
 Running type checks with mypy:
