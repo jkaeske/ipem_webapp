@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+{% load static %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+  <div class="pt-32 px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl text-base leading-7 text-gray-700">
+      <p class="text-base font-semibold leading-7 text-emerald-600">{{ model.name }} - {{ layer.type }}</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        {{ activity.get_type_display }}
+      </h1>
+      <p class="mt-6 text-xl leading-8">
+        Model: {{ model.name }} <br>
+        Layer: {{ layer.type }} <br>
+        Activity: {{ development_activity }} <br> <br>
+        {{ activity.description }}
+      </p>
+    </div>
+  </div>
+  <div class="space-y-6 mt-4 max-w-4xl mx-auto sm:px-6 lg:col-span-9 lg:px-0">
+    {% #card card_title="Method Overview" card_subtitle="List with all registered methods for this activity"%}
+      {% render_table table %}
+    {% /card %}
+  </div>
+{%  endblock %}

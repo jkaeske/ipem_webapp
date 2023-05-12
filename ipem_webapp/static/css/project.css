@@ -1099,10 +1099,6 @@ select {
   grid-template-columns: repeat(19, minmax(0, 1fr));
 }
 
-.grid-cols-16 {
-  grid-template-columns: repeat(16, minmax(0, 1fr));
-}
-
 .flex-row {
   flex-direction: row;
 }
@@ -1430,6 +1426,10 @@ select {
 
 .pb-10 {
   padding-bottom: 2.5rem;
+}
+
+.pt-32 {
+  padding-top: 8rem;
 }
 
 .pl-6 {

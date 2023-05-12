@@ -1,10 +1,24 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from streamfield.fields import StreamField
+
+from ipem_webapp.streamblocks.models import BulletPoint, Heading, Text
+from ipem_webapp.users.models import User
 
 
 class Model(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    is_public = models.BooleanField(default=False)
+    stream = StreamField(
+        model_list=[
+            Heading,
+            Text,
+            BulletPoint,
+        ],
+        verbose_name="Page blocks",
+    )
+    owner = models.ForeignKey(User, related_name="model", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -50,9 +64,6 @@ class ProblemSolvingActivity(models.Model):
 
     type = models.CharField(
         max_length=1, choices=ActivityType.choices, default=ActivityType.S
-    )
-    parent = models.ForeignKey(
-        "self", null=True, blank=True, related_name="children", on_delete=models.CASCADE
     )
     description = models.TextField(null=True, blank=True)
 
@@ -117,6 +128,27 @@ class DevelopmentActivity(models.Model):
         related_name="n",
         on_delete=models.CASCADE,
     )
+    description = models.TextField()
+    stream = StreamField(
+        model_list=[
+            Heading,
+            Text,
+            BulletPoint,
+        ],
+        verbose_name="Page blocks",
+    )
+    order = models.PositiveIntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        self.s = ProblemSolvingActivity.objects.create(type="S")
+        self.p = ProblemSolvingActivity.objects.create(type="P")
+        self.a = ProblemSolvingActivity.objects.create(type="A")
+        self.l = ProblemSolvingActivity.objects.create(type="L")
+        self.t = ProblemSolvingActivity.objects.create(type="T")
+        self.e = ProblemSolvingActivity.objects.create(type="E")
+        self.n = ProblemSolvingActivity.objects.create(type="N")
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"

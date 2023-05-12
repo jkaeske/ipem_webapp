@@ -78,6 +78,7 @@ THIRD_PARTY_APPS = [
     "slippers",
     "django_tables2",
     "nested_admin",
+    "streamfield",
 ]
 
 LOCAL_APPS = [
@@ -85,6 +86,7 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
     "ipem_webapp.methods",
     "ipem_webapp.models",
+    "ipem_webapp.streamblocks",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -212,7 +214,7 @@ FIXTURE_DIRS = (str(APPS_DIR / "fixtures"),)
 # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
 SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
 SECURE_BROWSER_XSS_FILTER = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options

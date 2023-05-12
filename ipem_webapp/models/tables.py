@@ -22,6 +22,25 @@ class ModelTable(tables.Table):
             },
         },
     )
+    description = tables.LinkColumn(
+        "models:model_description_detail",
+        orderable=False,
+        args=[tables.A("pk")],
+        text="Description",
+        verbose_name="",
+        attrs={
+            "a": {"class": "text-emerald-600 hover:text-emerald-900"},
+            "th": {
+                "class": "px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+            },
+            "td": {
+                "class": (
+                    "whitespace-nowrap py-4 pl-3 pr-6 text-right text-sm "
+                    "font-medium sm:pr-0"
+                )
+            },
+        },
+    )
     view = tables.LinkColumn(
         "models:model_detail",
         orderable=False,
@@ -44,7 +63,7 @@ class ModelTable(tables.Table):
 
     class Meta:
         model = Model
-        fields = ("name", "view")
+        fields = ("name", "description", "view")
         attrs = {
             "class": "min-w-full divide-y divide-gray-300",
             "tbody": {"class": "divide-y divide-gray-200 bg-white"},

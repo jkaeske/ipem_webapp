@@ -1,11 +1,34 @@
 import nested_admin
 from django.contrib import admin
 
-from .models import DevelopmentActivity, Layer, Model
+from ipem_webapp.methods.models import MethodRegistry
+
+from .models import DevelopmentActivity, Layer, Model, ProblemSolvingActivity
 
 
 class DevelopmentActivityInline(nested_admin.NestedTabularInline):
     model = DevelopmentActivity
+    fields = [
+        "name",
+        "order",
+        "parent",
+        "s",
+        "p",
+        "a",
+        "l",
+        "t",
+        "e",
+        "n",
+    ]
+    readonly_fields = [
+        "s",
+        "p",
+        "a",
+        "l",
+        "t",
+        "e",
+        "n",
+    ]
     extra = 0
 
 
@@ -27,3 +50,41 @@ class ModelAdmin(nested_admin.NestedModelAdmin):
 
 
 admin.site.register(Model, ModelAdmin)
+
+admin.site.register(ProblemSolvingActivity)
+
+
+class MethodRegistryInline(admin.TabularInline):
+    model = MethodRegistry
+    extra = 0
+
+
+class DevelopmentActivityAdmin(admin.ModelAdmin):
+    readonly_fields = [
+        "s",
+        "p",
+        "a",
+        "l",
+        "t",
+        "e",
+        "n",
+    ]
+    list_display = [
+        "name",
+        "get_layer",
+        "get_model",
+    ]
+    inlines = [
+        MethodRegistryInline,
+    ]
+
+    @admin.display(ordering="layer", description="Layer")
+    def get_layer(self, obj):
+        return obj.layer.type
+
+    @admin.display(ordering="layer__model", description="Model")
+    def get_model(self, obj):
+        return obj.layer.model
+
+
+admin.site.register(DevelopmentActivity, DevelopmentActivityAdmin)

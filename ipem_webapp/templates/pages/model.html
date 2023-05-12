@@ -74,19 +74,19 @@
       </div>
     </div>
 
-    {% for activity in layer.development_activity.all %}
-      <a href="{% url 'manage_projects' %}" class="font-mono h-12 grid place-content-center row-span-1 col-span-7 bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-pink-600 hover:to-yellow-600 text-white text-xl rounded-lg shadow-lg {% if forloop.first %}mt-3{% endif %}">
+    {% for activity in development_activity %}
+      <a href="{% url 'models:development_activity_detail' activity.pk %}" class="font-mono h-12 grid place-content-center row-span-1 {% if activity.parent %}col-start-3 col-span-6{% else %}col-span-7{% endif %} bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-pink-600 hover:to-yellow-600 text-white text-xl text-center rounded-lg shadow-lg {% if forloop.first %}mt-3{% endif %}">
         {{ activity.name }}
       </a>
       <div class="row-span-1 col-span-7 rounded-lg {% if forloop.first %}mt-3{% endif %}">
         <div class="h-12 flex flex-row gap-3 rounded-lg">
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 rounded-l-lg text-white text-center"></div>
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></div>
-          <div class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 rounded-r-lg text-white text-center"></div>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "s" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 rounded-l-lg text-white text-center"></a>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "p" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></a>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "a" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></a>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "l" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></a>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "t" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></a>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "e" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 text-white text-center"></a>
+          <a href="{% url "models:problem_solving_activity_detail" model.pk "PRODUCT" activity.pk "n" %}" class="grid place-content-center basis-1/6 bg-slate-400/100 hover:bg-emerald-600 rounded-r-lg text-white text-center"></a>
         </div>
       </div>
 
