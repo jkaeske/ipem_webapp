@@ -75,7 +75,7 @@
     </div>
 
     {% for activity in development_activity %}
-      <a href="{% url 'models:development_activity_detail' activity.pk %}" class="font-mono h-12 grid place-content-center row-span-1 {% if activity.parent %}col-start-3 col-span-6{% else %}col-span-7{% endif %} bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-pink-600 hover:to-yellow-600 text-white text-xl text-center rounded-lg shadow-lg {% if forloop.first %}mt-3{% endif %}">
+      <a href="{% url 'models:development_activity_detail' activity.pk %}" class="font-mono h-12 grid place-content-center row-span-1 {% if activity.parent %}col-start-3 col-span-6{% else %}col-span-7{% endif %} bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-pink-600 hover:to-yellow-600 text-white text-l text-center rounded-lg shadow-lg {% if forloop.first %}mt-3{% endif %}">
         {{ activity.name }}
       </a>
       <div class="row-span-1 col-span-7 rounded-lg {% if forloop.first %}mt-3{% endif %}">
